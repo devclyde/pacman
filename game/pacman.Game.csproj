@@ -5,7 +5,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 	<ItemGroup Label="Project References">
-		<ProjetReference Include="../resources/pacman.Resources.csproj" />
+		<ProjectReference Include="../resources/pacman.Resources.csproj" />
 	</ItemGroup>
   <ItemGroup Label="Package References">
     <PackageReference Include="ppy.osu.Framework" Version="2021.702.0" />
