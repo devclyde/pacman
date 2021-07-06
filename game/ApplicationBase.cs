@@ -1,7 +1,9 @@
 using osu.Framework.Allocation;
 using osu.Framework.Configuration;
 using osu.Framework.Graphics.Textures;
+using osu.Framework.IO.Stores;
 using pacman.Game.Stores;
+using static pacman.Resources.ResourceAssembly;
 using ofGame = osu.Framework.Game;
 
 namespace pacman.Game
@@ -16,6 +18,8 @@ namespace pacman.Game
         [BackgroundDependencyLoader]
         private void Load(FrameworkConfigManager config)
         {
+            Resources.AddStore(new DllResourceStore(Assembly));
+
             dependencies.Cache(textureStore = new(Textures));
             dependencies.Cache(nearestTextureStore = new(Textures));
 
