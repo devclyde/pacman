@@ -2,6 +2,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Screens;
+using pacman.Game.Elements.Pacman;
 using pacman.Game.Stores;
 
 namespace pacman.Game.Screens
@@ -11,16 +12,14 @@ namespace pacman.Game.Screens
         private Sprite sprite;
 
         [BackgroundDependencyLoader]
-        private void Load(NearestTextureStore nearestTextureStore)
+        private void Load()
         {
-            var texture = nearestTextureStore.Get(@"pacman/full-ball");
-            AddInternal(sprite = new()
+            var anim = new PacmanAnimation
             {
-                Size = texture.Size * 3,
-                Texture = texture,
-                Anchor = Anchor.Centre,
-                Origin = Anchor.Centre
-            });
+                State = PlayerState.Running,
+            };
+
+            AddInternal(anim);
         }
     }
 }
