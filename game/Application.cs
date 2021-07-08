@@ -1,5 +1,6 @@
 using osu.Framework.Allocation;
 using osu.Framework.Screens;
+using pacman.Game.Input;
 using pacman.Game.Screens;
 
 namespace pacman.Game
@@ -12,7 +13,7 @@ namespace pacman.Game
         private void Load()
         {
             var screens = new ScreenStack();
-            screens.Push(new GameScreen());
+            screens.Push(new MenuScreen());
 
             Add(screens);
         }
