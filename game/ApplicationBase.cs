@@ -23,6 +23,8 @@ namespace pacman.Game
             dependencies.Cache(textureStore = new(Textures));
             dependencies.Cache(nearestTextureStore = new(Textures));
 
+            AddFont(Resources, @"Fonts/Arcade");
+
             config.GetBindable<FrameSync>(FrameworkSetting.FrameSync).Value = FrameSync.Unlimited;
             Host.Window.Title = "PACMAN";
         }
