@@ -7,15 +7,15 @@ using pacman.Game.Graphics.UserInterface;
 
 namespace pacman.Game.Screens
 {
-    public class GameScreen : Screen
+    public class AboutScreen : Screen
     {
-        public GameScreen()
+        public AboutScreen()
         {
             AddInternal(new ArcadeSpriteText
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Text = "GAME START"
+                Text = "ABOUT"
             });
         }
 

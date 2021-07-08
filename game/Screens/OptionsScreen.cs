@@ -1,21 +1,21 @@
-using osu.Framework.Allocation;
-using osu.Framework.Graphics;
-using osu.Framework.Input.Events;
 using osu.Framework.Screens;
-using osuTK.Input;
+using osu.Framework.Graphics;
 using pacman.Game.Graphics.UserInterface;
+using osu.Framework.Input.Events;
+using osuTK.Input;
+using osu.Framework.Allocation;
 
 namespace pacman.Game.Screens
 {
-    public class GameScreen : Screen
+    public class OptionsScreen : Screen
     {
-        public GameScreen()
+        public OptionsScreen()
         {
             AddInternal(new ArcadeSpriteText
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Text = "GAME START"
+                Text = "OPTIONS MENU"
             });
         }
 
