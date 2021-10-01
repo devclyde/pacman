@@ -9,9 +9,9 @@ namespace pacman.Desktop
         [System.STAThread]
         internal static void Main()
         {
-            using (ofGame game = new Application())
-            using (var host = Host.GetSuitableHost(@"PACMAN"))
-                host.Run(game);
+            using ofGame game = new Application();
+            using var host = Host.GetSuitableHost(@"PACMAN");
+            host.Run(game);
         }
     }
 }

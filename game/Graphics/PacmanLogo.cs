@@ -6,7 +6,8 @@ namespace pacman.Game.Graphics
 {
     public class PacmanLogo : CompositeDrawable
     {
-        private SpriteText textLogo1, textLogo2;
+        private readonly SpriteText textLogo1;
+        private readonly SpriteText textLogo2;
 
         public PacmanLogo()
         {

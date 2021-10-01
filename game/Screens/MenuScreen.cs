@@ -4,7 +4,6 @@ using osu.Framework.Graphics;
 using pacman.Game.Graphics;
 using pacman.Game.Graphics.UserInterface;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input.Bindings;
 using pacman.Game.Input;
 using osu.Framework.Bindables;
@@ -27,19 +26,19 @@ namespace pacman.Game.Screens
                         Direction = FillDirection.Vertical,
                         Children = new ArcadeButton[]
                         {
-                            new(OnClickPlayButton)
+                            new(() => this.Push(new GameScreen()))
                             {
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
-                                Title = "START BUTTON"
+                                Title = "START GAME"
                             },
-                            new(OnClickOptionsButton)
+                            new(() => this.Push(new OptionsScreen()))
                             {
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 Title = "OPTIONS"
                             },
-                            new(OnClickAboutButton)
+                            new(() => this.Push(new AboutScreen()))
                             {
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
@@ -52,39 +51,26 @@ namespace pacman.Game.Screens
                 {
                     Anchor = Anchor.TopCentre,
                     Origin = Anchor.Centre,
-                    Y = 100
+                    RelativePositionAxes = Axes.Both,
+                    Y = 0.1f
                 },
                 new ArcadeSpriteText
                 {
                     Anchor = Anchor.BottomCentre,
                     Origin = Anchor.Centre,
-                    Y = -15,
+                    RelativePositionAxes = Axes.Both,
+                    Y = -0.05f,
                     FontSize = 16,
                     Colour = Colour4.White,
                     Text = "TM & COPYRIGHT 1980-2021 NAMCO LTD. ALL RIGHTS RESERVED"
                 }
             });
         }
-
-        private void OnClickPlayButton()
-        {
-            this.Push(new GameScreen());
-        }
-
-        private void OnClickOptionsButton()
-        {
-            this.Push(new OptionsScreen());
-        }
-
-        private void OnClickAboutButton()
-        {
-            this.Push(new AboutScreen());
-        }
     }
 
     public class ButtonFillFlowContainer : FillFlowContainer<ArcadeButton>, IKeyBindingHandler<ButtonInputAction>
     {
-        private Bindable<int> currentSelected;
+        private readonly Bindable<int> currentSelected;
 
         public ButtonFillFlowContainer()
         {
@@ -102,11 +88,8 @@ namespace pacman.Game.Screens
 
         private void SelectedChanged(ValueChangedEvent<int> e)
         {
-            foreach (var child in Children)
-            {
-                Children[e.OldValue].Selected = false;
-                Children[e.NewValue].Selected = true;
-            }
+            Children[e.OldValue].Selected = false;
+            Children[e.NewValue].Selected = true;
         }
 
         public bool OnPressed(ButtonInputAction action)
@@ -134,6 +117,8 @@ namespace pacman.Game.Screens
         }
 
         public void OnReleased(ButtonInputAction action)
-        {}
+        {
+            return;
+        }
     }
 }

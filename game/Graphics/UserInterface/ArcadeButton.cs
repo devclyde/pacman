@@ -18,10 +18,10 @@ namespace pacman.Game.Graphics.UserInterface
             }
         }
 
-        private Bindable<bool> selectedBindable;
-        private ArcadeSpriteText text;
+        private readonly Bindable<bool> selectedBindable;
+        private readonly ArcadeSpriteText text;
 
-        private Action execute;
+        private readonly Action execute;
 
         public ArcadeButton(Action action)
         {
