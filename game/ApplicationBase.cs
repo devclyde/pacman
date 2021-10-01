@@ -22,6 +22,7 @@ namespace pacman.Game
 
             dependencies.Cache(textureStore = new(Textures));
             dependencies.Cache(nearestTextureStore = new(Textures));
+            dependencies.Cache(new GameManager());
 
             AddFont(Resources, @"Fonts/Arcade");
 

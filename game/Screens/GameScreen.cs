@@ -9,6 +9,8 @@ namespace pacman.Game.Screens
 {
     public class GameScreen : Screen
     {
+        private GameManager gameManager;
+
         public GameScreen()
         {
             AddInternal(new ArcadeSpriteText
@@ -17,6 +19,13 @@ namespace pacman.Game.Screens
                 Origin = Anchor.Centre,
                 Text = "GAME START"
             });
+        }
+
+        [BackgroundDependencyLoader]
+        private void Load(GameManager gameManager)
+        {
+            this.gameManager = gameManager;
+            gameManager.ResetState();
         }
 
         protected override bool OnKeyDown(KeyDownEvent e)
