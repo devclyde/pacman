@@ -3,6 +3,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Input.Events;
 using osu.Framework.Screens;
 using osuTK.Input;
+using pacman.Game.Elements;
 using pacman.Game.Graphics.UserInterface;
 
 namespace pacman.Game.Screens
@@ -13,11 +14,11 @@ namespace pacman.Game.Screens
 
         public GameScreen()
         {
-            AddInternal(new ArcadeSpriteText
+            AddInternal(new GameRoom
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Text = "GAME START"
+                Scale = new osuTK.Vector2(2)
             });
         }
 
@@ -25,7 +26,7 @@ namespace pacman.Game.Screens
         private void Load(GameManager gameManager)
         {
             this.gameManager = gameManager;
-            gameManager.ResetState();
+            this.gameManager.ResetState();
         }
 
         protected override bool OnKeyDown(KeyDownEvent e)
